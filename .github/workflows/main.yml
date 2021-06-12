@@ -10,7 +10,6 @@ jobs:
   sonar_client:
     name: Test - SonarCloud Scan Client
     runs-on: ubuntu-18.04
-    needs: [test_client, test_cito]
     steps:
       - uses: actions/checkout@v2
         with:
