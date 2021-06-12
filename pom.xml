@@ -15,8 +15,8 @@
 	<description>CITO deliveries client</description>
 	<properties>
 		<java.version>11</java.version>
-		<sonar.projectKey>92963-93080-93456-93019_cito-deliveries-management</sonar.projectKey>
-		<sonar.organization>92963-93080-93456-93019</sonar.organization>
+		<sonar.projectKey>92963-93080-93456-93019_cito-client</sonar.projectKey>
+		<sonar.organization>92963-93080-93456-93019-1</sonar.organization>
 		<sonar.host.url>https://sonarcloud.io</sonar.host.url>
 	</properties>
 	<dependencies>
