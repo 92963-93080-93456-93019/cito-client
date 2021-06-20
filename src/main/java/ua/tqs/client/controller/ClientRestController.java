@@ -2,6 +2,7 @@ package ua.tqs.client.controller;
 
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
@@ -25,11 +26,13 @@ public class ClientRestController {
     private static final String BROKEN_JSON = "{\"code\" : 500, \"message\" : \"Internal Server Error. Broken JSON.\"}";
     private ObjectMapper objectMapper = new ObjectMapper();
 
+
     @PostMapping(value = "{clientId}/orders", produces = MediaType.APPLICATION_JSON_VALUE   )
     public ResponseEntity<Object> registerOrder(@PathVariable Long clientId, @RequestBody JsonNode payload) {
         return orderService.registerOrder(clientId, payload);
     }
 
+    @Operation(summary = "Gets all products.")
     @GetMapping(value = "{clientId}/products", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<Object> getAllProductsForClient(@PathVariable Long clientId, String query) {
         return searchService.getAllProductsForClient(clientId, query);
