@@ -14,7 +14,7 @@ import static io.restassured.module.mockmvc.RestAssuredMockMvc.*;
 @AutoConfigureMockMvc
 @SpringBootTest
 @AutoConfigureTestDatabase(replace = AutoConfigureTestDatabase.Replace.NONE)
-public class ClientRestControllerITest {
+class ClientRestControllerITest {
     @Autowired
     private MockMvc mvc;
 
@@ -24,7 +24,7 @@ public class ClientRestControllerITest {
     }
 
     @Test
-    public void whenRegisterOrder_thenReturnCreated() {
+    void whenRegisterOrder_thenReturnCreated() {
 
         String body = "{\"products\":[{\"id\":3,\"quantity\":2},{\"id\":4,\"quantity\":1}],\"info\":{\"appid\":1,\"userId\":1,\"deliveryAddress\":\"Rua das Batatas\",\"deliverInPerson\":true,\"latitude\":50,\"longitude\":50}}";
 
@@ -39,7 +39,7 @@ public class ClientRestControllerITest {
     }
 
     @Test
-    public void whenGetAllProducts_thenReturnOK() {
+    void whenGetAllProducts_thenReturnOK() {
 
          given()
                 .get("clientApi/1/products")

@@ -26,7 +26,7 @@ import static org.mockito.Mockito.verify;
 
 @ExtendWith(MockitoExtension.class)
 @MockitoSettings(strictness = Strictness.LENIENT)
-public class OrderServiceTest {
+class OrderServiceTest {
 
     @Mock(lenient = true)
     private RestTemplate restTemplate;
@@ -37,7 +37,7 @@ public class OrderServiceTest {
     ObjectMapper objectMapper = new ObjectMapper();
 
     @Test
-    public void whenRegisterOrders_ReturnOK() throws JsonProcessingException {
+    void whenRegisterOrders_ReturnOK() throws JsonProcessingException {
         String body = "{\"products\":[{\"id\":3,\"quantity\":2},{\"id\":4,\"quantity\":1}],\"info\":{\"appid\":1,\"userId\":1,\"deliveryAddress\":\"Rua das Batatas\",\"deliverInPerson\":true,\"latitude\":50,\"longitude\":50}}";
         JsonNode bodyObj = objectMapper.readTree(body);
         String response = "{\"code\" : 201, \"message\" : \"Order saved.\"}";
