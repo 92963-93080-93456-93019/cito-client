@@ -16,8 +16,6 @@ public class OrderService {
     @Autowired
     private RestTemplate restTemplate;
 
-    private ObjectMapper objectMapper = new ObjectMapper();
-
     private static final String CITO_REGISTER_ORDER_API_URL = "https://cito-engine.herokuapp.com/clientApi/{clientId}/orders?appid={apiKey}";
 
     public ResponseEntity<Object> registerOrder(Long clientId, JsonNode payload) {

@@ -23,10 +23,6 @@ public class ClientRestController {
     @Autowired
     private OrderService orderService;
 
-    private static final String BROKEN_JSON = "{\"code\" : 500, \"message\" : \"Internal Server Error. Broken JSON.\"}";
-    private ObjectMapper objectMapper = new ObjectMapper();
-
-
     @PostMapping(value = "{clientId}/orders", produces = MediaType.APPLICATION_JSON_VALUE   )
     public ResponseEntity<Object> registerOrder(@PathVariable Long clientId, @RequestBody JsonNode payload) {
         return orderService.registerOrder(clientId, payload);

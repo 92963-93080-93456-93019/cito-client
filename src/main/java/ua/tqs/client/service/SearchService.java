@@ -15,8 +15,6 @@ public class SearchService {
     @Autowired
     private RestTemplate restTemplate;
 
-    private ObjectMapper objectMapper = new ObjectMapper();
-
     private static final String CITO_PRODUCTS_API_URL = "https://cito-engine.herokuapp.com/clientApi/{clientId}/products?appid={apiKey}&query={query}";
 
     public ResponseEntity<Object> getAllProductsForClient(Long clientId, String query) {
