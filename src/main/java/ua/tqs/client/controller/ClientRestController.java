@@ -12,7 +12,7 @@ import ua.tqs.client.service.SearchService;
 
 @Tag(name = "Client Deliveries", description = "the Client Deliveries API")
 @RestController
-@CrossOrigin(origins = "http://localhost:3000")
+@CrossOrigin(origins = {"https://cito-client-app.herokuapp.com","http://localhost:3000"})
 @RequestMapping("/clientApi")
 public class ClientRestController {
 
@@ -25,19 +25,13 @@ public class ClientRestController {
     private static final String BROKEN_JSON = "{\"code\" : 500, \"message\" : \"Internal Server Error. Broken JSON.\"}";
     private ObjectMapper objectMapper = new ObjectMapper();
 
-
-    @GetMapping(value = "{clientId}/search", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Object> getProductsByQuery(@PathVariable Long clientId, String query) {
-        return searchService.getProductsByQuery(clientId, query);
-    }
-
-    @PostMapping(value = "{clientId}/order/register", produces = MediaType.APPLICATION_JSON_VALUE   )
+    @PostMapping(value = "{clientId}/orders", produces = MediaType.APPLICATION_JSON_VALUE   )
     public ResponseEntity<Object> registerOrder(@PathVariable Long clientId, @RequestBody JsonNode payload) {
         return orderService.registerOrder(clientId, payload);
     }
 
     @GetMapping(value = "{clientId}/products", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<Object> getAllProductsForClient(@PathVariable Long clientId) {
-        return searchService.getAllProductsForClient(clientId);
+    public ResponseEntity<Object> getAllProductsForClient(@PathVariable Long clientId, String query) {
+        return searchService.getAllProductsForClient(clientId, query);
     }
 }
