@@ -17,7 +17,7 @@ public class SearchService {
 
     private ObjectMapper objectMapper = new ObjectMapper();
 
-    private static final String CITO_PRODUCTS_API_URL = "http://localhost:8081/clientApi/{clientId}/products?appid={apiKey}&query={query}";
+    private static final String CITO_PRODUCTS_API_URL = "https://cito-engine.herokuapp.com/clientApi/{clientId}/products?appid={apiKey}&query={query}";
 
     public ResponseEntity<Object> getAllProductsForClient(Long clientId, String query) {
         URI url = new UriTemplate(CITO_PRODUCTS_API_URL).expand(clientId, 1, query);

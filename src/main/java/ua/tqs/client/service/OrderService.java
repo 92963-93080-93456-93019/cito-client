@@ -18,7 +18,7 @@ public class OrderService {
 
     private ObjectMapper objectMapper = new ObjectMapper();
 
-    private static final String CITO_REGISTER_ORDER_API_URL = "http://localhost:8081/clientApi/{clientId}/orders?appid={apiKey}";
+    private static final String CITO_REGISTER_ORDER_API_URL = "https://cito-engine.herokuapp.com/clientApi/{clientId}/orders?appid={apiKey}";
 
     public ResponseEntity<Object> registerOrder(Long clientId, JsonNode payload) {
         URI url = new UriTemplate(CITO_REGISTER_ORDER_API_URL).expand(clientId,1);
