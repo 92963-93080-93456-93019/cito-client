@@ -1,7 +1,6 @@
 package ua.tqs.client.controller;
 
 import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.ObjectMapper;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,7 +12,8 @@ import ua.tqs.client.service.SearchService;
 
 @Tag(name = "Client Deliveries", description = "the Client Deliveries API")
 @RestController
-@CrossOrigin(origins = {"https://cito-client-app.herokuapp.com","http://localhost:3000"})
+@CrossOrigin(origins = "*")
+
 @RequestMapping("/clientApi")
 public class ClientRestController {
 
