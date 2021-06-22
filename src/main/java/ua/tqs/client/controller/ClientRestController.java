@@ -12,8 +12,6 @@ import ua.tqs.client.service.SearchService;
 
 @Tag(name = "Client Deliveries", description = "the Client Deliveries API")
 @RestController
-@CrossOrigin(origins = "*")
-
 @RequestMapping("/clientApi")
 public class ClientRestController {
 
